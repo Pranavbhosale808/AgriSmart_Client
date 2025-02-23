@@ -14,7 +14,7 @@ const Login = () => {
       // Save JWT Token
       localStorage.setItem("token", response.data.access);
 
-      // Save Farmer's Name from Backend Response
+      // Save Farmer's Name from Backend Response 
       localStorage.setItem("farmerName", response.data.username);
 
       alert("Login successful!");
