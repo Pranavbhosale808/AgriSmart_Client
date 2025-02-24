@@ -24,7 +24,7 @@ const HomePage = () => {
           </p>
 
           {/* Conditional Rendering: Show Login & Signup if not logged in, else show Learn More */}
-          {/* {!isLoggedIn ? (
+          {!isLoggedIn ? (
             <div className="mt-6 flex space-x-4">
               <Link 
                 to="/signup"
@@ -46,7 +46,7 @@ const HomePage = () => {
             >
               Learn More
             </Link>
-          )} */}
+          )}
         </div>
 
         {/* Right: Plant Image with Glow Animation */}
