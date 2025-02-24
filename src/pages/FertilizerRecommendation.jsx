@@ -65,7 +65,7 @@ const FertilizerRecommendation = () => {
     const queryString = new URLSearchParams(requestData).toString();
 
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/fertilizer?${queryString}`);
+      const response = await fetch(`https://agrismart-server.onrender.com/api/fertilizer?${queryString}`);
       if (!response.ok) {
         throw new Error(`Server Error: ${response.status}`);
       }

@@ -18,7 +18,7 @@ const CropRecommendation = () => {
     setResult(null);
 
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/crop?${new URLSearchParams(formData)}`);
+      const response = await fetch(`https://agrismart-server.onrender.com/api/crop?${new URLSearchParams(formData)}`);
       if (!response.ok) {
         throw new Error(`Server Error: ${response.status}`);
       }

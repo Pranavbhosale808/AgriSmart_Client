@@ -24,7 +24,7 @@ const SoilLabs = () => {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/api/labs/?state=${state}&district=${district}`
+        `https://agrismart-server.onrender.com/api/labs/?state=${state}&district=${district}`
       );
       const data = await response.json();
 

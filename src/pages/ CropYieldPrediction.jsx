@@ -41,7 +41,7 @@ const fertilizerOptions = [
 
 const CropYieldPrediction = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const { data, error, loading, fetchData } = useApi('http://127.0.0.1:8000/api/crop-yield');
+  const { data, error, loading, fetchData } = useApi('https://agrismart-server.onrender.com/api/crop-yield');
   const [result, setResult] = useState('');
 
   const onSubmit = async (formData) => {

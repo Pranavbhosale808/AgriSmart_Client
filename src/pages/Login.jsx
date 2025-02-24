@@ -9,7 +9,7 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post("http://127.0.0.1:8000/api/login/", data);
+      const response = await axios.post("https://agrismart-server.onrender.com/api/login/", data);
       
       // Save JWT Token
       localStorage.setItem("token", response.data.access);

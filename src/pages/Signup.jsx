@@ -10,7 +10,7 @@ const Signup = () => {
 
   const onSubmit = async (data) => {
     try {
-      await axios.post("http://127.0.0.1:8000/api/signup/", data);
+      await axios.post("https://agrismart-server.onrender.com/api/signup/", data);
       
       // Show success message
       setSuccessMessage("Signup successful! Redirecting to login...");
