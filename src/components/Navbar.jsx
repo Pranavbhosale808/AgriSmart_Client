@@ -15,10 +15,11 @@ const Navbar = () => {
     setIsAuthenticated(!!token);
   }, [location.pathname]);
 
+  // Handle Logout
   const handleLogout = () => {
     localStorage.removeItem("token");
-    setIsAuthenticated(false);
-    setShowDropdown(false);
+    localStorage.removeItem("farmerName");
+    setIsAuthenticated(false);    
     navigate("/");
   };
 

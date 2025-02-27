@@ -1,12 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import { FaLeaf } from "react-icons/fa"; // Leaf icon for UI
 import plantImage from "../../public/assets/Back.png"; // Update with actual image path
 import Footer from "../components/ Footer";
 
 const HomePage = () => {
-  // Assume authentication status is stored in localStorage or a global state
-  const isLoggedIn = localStorage.getItem("authToken"); // Replace with actual authentication logic   
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const checkAuthStatus = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) return;
+
+        const response = await axios.get("http://127.0.0.1:8000/api/auth_status/", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        if (response.data.isAuthenticated) {
+          setIsAuthenticated(true);
+        }
+      } catch (error) {
+        console.error("Authentication check failed:", error);
+      }
+    };
+
+    checkAuthStatus();
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#f5f9f3] to-[#e0eed8]">
@@ -24,7 +45,7 @@ const HomePage = () => {
           </p>
 
           {/* Conditional Rendering: Show Login & Signup if not logged in, else show Learn More */}
-          {!isLoggedIn ? (
+          {!isAuthenticated ? (
             <div className="mt-6 flex space-x-4">
               <Link 
                 to="/signup"
@@ -101,8 +122,10 @@ const HomePage = () => {
 
         </div>
       </div>
+
+      {/* Footer */}
+      <Footer />
     </div>
-  
   );
 };
 
