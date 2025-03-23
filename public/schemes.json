@@ -1,0 +1,56 @@
+[
+  {
+    "title": "Pradhan Mantri Kisan Urja Suraksha Evam Utthan Mahabhiyan (PM-KUSUM)",
+    "description": "Scheme to promote solar energy in agriculture and provide financial assistance for solar pumps.",
+    "eligibility": "Farmers with electricity connections.",
+    "applicationProcess": "Apply through state government websites.",
+    "applyLink": "https://pmkusum.gov.in",
+    "category": "Solar Energy",
+    "tags": ["Solar", "Subsidy", "Irrigation"]
+  },
+  {
+    "title": "Soil Health Card Scheme",
+    "description": "Free soil testing and recommendations for improving soil fertility.",
+    "eligibility": "All farmers",
+    "applicationProcess": "Submit soil samples at designated centers.",
+    "applyLink": "https://soilhealth.dac.gov.in",
+    "category": "Soil Health",
+    "tags": ["Soil", "Fertilizer", "Support"]
+  },
+  {
+    "title": "National Mission for Sustainable Agriculture (NMSA)",
+    "description": "Promotes sustainable farming with financial aid.",
+    "eligibility": "Organic farmers",
+    "applicationProcess": "Apply through state agriculture departments.",
+    "applyLink": "https://nmsa.gov.in",
+    "category": "Sustainability",
+    "tags": ["Organic", "Sustainability", "Subsidy"]
+  },
+  {
+    "title": "PM Fasal Bima Yojana",
+    "description": "Insurance for crops against natural disasters.",
+    "eligibility": "All farmers",
+    "applicationProcess": "Apply through banks or online.",
+    "applyLink": "https://pmfby.gov.in",
+    "category": "Insurance",
+    "tags": ["Crop", "Insurance", "Relief"]
+  },
+  {
+    "title": "e-NAM (National Agriculture Market)",
+    "description": "Online market for selling agricultural produce.",
+    "eligibility": "Registered farmers and traders.",
+    "applicationProcess": "Register on the e-NAM portal.",
+    "applyLink": "https://enam.gov.in",
+    "category": "Market",
+    "tags": ["Trade", "Market", "Agriculture"]
+  },
+  {
+    "title": "Dairy Entrepreneurship Development Scheme",
+    "description": "Financial support for dairy farmers.",
+    "eligibility": "Dairy farmers and cooperatives.",
+    "applicationProcess": "Apply through NABARD bank.",
+    "applyLink": "https://nabard.org",
+    "category": "Dairy",
+    "tags": ["Dairy", "Loan", "Livestock"]
+  }
+]

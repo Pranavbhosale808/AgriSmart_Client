@@ -1,183 +1,28 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import { motion } from "framer-motion";  // Animations
-import Lottie from "lottie-react";  // Animated farming illustration
-import farmingAnimation from "../assets/Fertlizer.json";  // Ensure this exists
-import FormInput from "../components/FormInput";
-
-// Dropdown options for Soil Type
-const soilOptions = [
-  { value: 0, label: "Loamy (दोमट मिट्टी)" },
-  { value: 1, label: "Red (लाल मिट्टी)" },
-  { value: 2, label: "Clayey (चिकनी मिट्टी)" },
-  { value: 3, label: "Sandy (बालू मिट्टी)" },
-  { value: 4, label: "Black (काली मिट्टी)" },
-];
-
-// Dropdown options for Crop Type
-const cropOptions = [
-  { value: 0, label: "Rice (चावल)" },
-  { value: 1, label: "Maize (मक्का)" },
-  { value: 2, label: "Jute (जूट)" },
-  { value: 3, label: "Cotton (कपास)" },
-  { value: 4, label: "Coconut (नारियल)" },
-  { value: 5, label: "Papaya (पपीता)" },
-  { value: 6, label: "Orange (संतरा)" },
-  { value: 7, label: "Apple (सेब)" },
-  { value: 8, label: "Muskmelon (खरबूजा)" },
-  { value: 9, label: "Watermelon (तरबूज)" },
-  { value: 10, label: "Grapes (अंगूर)" },
-  { value: 11, label: "Soyachunks (सोयाबीन)" },
-  { value: 12, label: "Banana (केला)" },
-  { value: 13, label: "Pomegranate (अनार)" },
-  { value: 14, label: "Lentil (दाल)" },
-  { value: 15, label: "Blackgram (उड़द)" },
-  { value: 16, label: "Mungbean (मूंग)" },
-  { value: 17, label: "Mothbeans (मुठ)" },
-  { value: 18, label: "Pigeonpeas (अरहर)" },
-  { value: 19, label: "Kidneybeans (राजमा)" },
-  { value: 20, label: "Chickpea (चने)" },
-  { value: 21, label: "Coffee (कॉफी)" },
-];
+import OrganicFertilizer from "../components/OrganicFertilizer";
+import InorganicFertilizer from "../components/InorganicFertilizer";
 
 const FertilizerRecommendation = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const [result, setResult] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  const onSubmit = async (formData) => {
-    setLoading(true);
-    setError(null);
-
-    const requestData = {
-      soil_type: parseInt(formData.soilType),
-      crop_type: parseInt(formData.cropType),
-      temperature: formData.temperature,
-      humidity: formData.humidity,
-      moisture: formData.moisture,
-      nitrogen: formData.nitrogen,
-      phosphorous: formData.phosphorous,
-      potassium: formData.potassium,
-      land_area: formData.landArea,  
-    };
-
-    const queryString = new URLSearchParams(requestData).toString();
-
-    try {
-      const response = await fetch(`https://agrismart-server.onrender.com/api/fertilizer?${queryString}`);
-      if (!response.ok) {
-        throw new Error(`Server Error: ${response.status}`);
-      }
-
-      const data = await response.json();
-      setResult(data);
-    } catch (err) {
-      setError(err.message || "Error fetching data");
-    } finally {
-      setLoading(false);
-    }
-  };
+  const [isOrganic, setIsOrganic] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#f5f9f3] to-[#e0eed8] flex items-center justify-center p-8">
-      <div className="max-w-6xl w-full bg-white shadow-lg rounded-lg p-6">
-        <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-6">
-          🌱 Fertilizer Recommendation
-        </h1>
-
-        {/* Main Layout: Form on Left, Animation on Right */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-          {/* Left Side: Input Form */}
-          <motion.form 
-            initial={{ opacity: 0, x: -30 }} 
-            animate={{ opacity: 1, x: 0 }} 
-            transition={{ duration: 0.8 }} 
-            onSubmit={handleSubmit(onSubmit)} 
-            className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-white p-6 rounded-lg shadow-lg w-full"
-          >
-            <FormInput label="Temperature (°C)" name="temperature" type="number" register={register} required error={errors.temperature} />
-            <FormInput label="Humidity (%)" name="humidity" type="number" register={register} required error={errors.humidity} />
-            <FormInput label="Moisture (%)" name="moisture" type="number" register={register} required error={errors.moisture} />
-            <FormInput label="Nitrogen" name="nitrogen" type="number" register={register} required error={errors.nitrogen} />
-            <FormInput label="Phosphorous" name="phosphorous" type="number" register={register} required error={errors.phosphorous} />
-            <FormInput label="Potassium" name="potassium" type="number" register={register} required error={errors.potassium} />
-            <FormInput label="Land Area (hectares)" name="landArea" type="number" register={register} required error={errors.landArea} />
-            <div>
-          <label className="block text-gray-700 text-sm font-bold mb-2">Soil Type <span className="text-red-500">*</span></label>
-          <select {...register("soilType", { required: true })} className="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none">
-            <option value="">Select Soil Type</option>
-            {soilOptions.map((soil) => (
-              <option key={soil.value} value={soil.value}>{soil.label}</option>
-            ))}
-          </select>
-        </div>
-
-        <div>
-          <label className="block text-gray-700 text-sm font-bold mb-2">Crop Type <span className="text-red-500">*</span></label>
-          <select {...register("cropType", { required: true })} className="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none">
-            <option value="">Select Crop Type</option>
-            {cropOptions.map((crop) => (
-              <option key={crop.value} value={crop.value}>{crop.label}</option>
-            ))}
-          </select>
-        </div>
-
-            {/* Submit Button */}
-            <div className="col-span-1 md:col-span-2 flex justify-center">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="bg-green-600 text-white px-6 py-3 rounded-lg font-bold shadow-lg hover:bg-green-700 transition-all"
-              >
-                {loading ? "Loading..." : "Get Recommendation"}
-              </motion.button>
-            </div>
-          </motion.form>
-
-          {/* Right Side: Animated Farming Illustration */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-            className="flex justify-center"
-          >
-            <Lottie animationData={farmingAnimation} className="w-64 h-64 md:w-80 md:h-80" />
-          </motion.div>
-        </div>
-
-        {/* Result Table */}
-        {result && (
-          <div className="mt-6 bg-white p-4 rounded-lg shadow-lg">
-            <h2 className="text-lg font-bold text-center mb-4">🌾 Recommended Fertilizer</h2>
-            <table className="w-full border-collapse border border-gray-300 text-gray-700">
-              <thead>
-                <tr className="bg-green-200 text-gray-900">
-                  <th className="border p-3">Name</th>
-                  <th className="border p-3">NPK Ratio</th>
-                  <th className="border p-3">Land Area</th>
-                  <th className="border p-3">Recommended Quantity (kg)</th>
-                  <th className="border p-3">Buy</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="text-center bg-white hover:bg-gray-100 transition">
-                  <td className="border p-3">{result.fertilizer}</td>
-                  <td className="border p-3">{result.npk_ratio}</td>
-                  <td className="border p-3">{result.land_area}</td>
-                  <td className="border p-3">{result.recommended_quantity_kg} kg</td>
-                  <td className="border p-3">
-                    <a href={result.buy_link} target="_blank" rel="noopener noreferrer">
-                      <button className="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 transition duration-300">
-                        Buy Now
-                      </button>
-                    </a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        )}
+    <div className="min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-b from-[#f5f9f3] to-[#e0eed8] p-8">
+      <div className="flex items-center mt-10">
+        <span className="mr-3 font-semibold text-lg">Inorganic</span>
+        <label className="relative inline-flex items-center cursor-pointer">
+          <input 
+            type="checkbox" 
+            className="sr-only peer" 
+            checked={isOrganic} 
+            onChange={() => setIsOrganic(!isOrganic)}
+          />
+          <div className="w-14 h-7 bg-gray-300 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-green-500 dark:peer-focus:ring-green-500 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-7 peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-1 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-green-600"></div>
+        </label>
+        <span className="ml-3 font-semibold text-lg">Organic</span>
+      </div>
+      
+      <div className="w-full mt-6">
+        {isOrganic ? <OrganicFertilizer /> : <InorganicFertilizer />}
       </div>
     </div>
   );

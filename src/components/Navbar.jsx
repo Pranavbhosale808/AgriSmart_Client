@@ -19,6 +19,7 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("farmerName");
+    localStorage.removeItem("token");
     setIsAuthenticated(false);    
     navigate("/");
   };
@@ -49,12 +50,9 @@ const Navbar = () => {
               <Link to="/fertilizer-recommendation" className="text-gray-800 hover:text-green-700  transition">
                 <GiFarmTractor className="inline-block mr-2" /> Fertilizer
               </Link>
-              <Link to="/crop-yield-prediction" className="text-gray-800 hover:text-green-700  transition">
+              {/* <Link to="/crop-yield-prediction" className="text-gray-800 hover:text-green-700  transition">
                 <FaChartLine className="inline-block mr-2" /> Yield
-              </Link>
-              <Link to="/SoilLabs" className="text-gray-800 hover:text-green-700  transition">
-                <FaChartLine className="inline-block mr-2" /> SoilLabs
-              </Link>
+              </Link> */}
             </>
           )}
 
@@ -105,9 +103,6 @@ const Navbar = () => {
               </Link>
               <Link to="/crop-yield-prediction" onClick={() => setMobileMenuOpen(false)} className="block text-black text-lg">
                 <FaChartLine className="inline-block mr-2" /> Yield
-              </Link>
-              <Link to="/SoilLabs" onClick={() => setMobileMenuOpen(false)} className="block text-black text-lg">
-                <FaChartLine className="inline-block mr-2" /> SoilLabs
               </Link>
             </>
           )}

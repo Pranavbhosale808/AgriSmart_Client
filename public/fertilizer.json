@@ -1,0 +1,133 @@
+[
+    {
+      "fertilizer_name": "Bone Meal",
+      "description": "Rich in phosphorus and calcium, ideal for root development and flowering plants.",
+      "best_suited_for": "Root crops, flowering plants, fruit-bearing trees.",
+      "application_frequency_dosage": "Apply once every 2-3 months; mix 1 cup per plant or sprinkle in soil before planting.",
+      "tags": ["Phosphorus-rich", "Root Growth", "Organic"],
+      "watch_video": "https://youtu.be/5U133LRTFB0?si=0G_ckO7qae0s8M3T",
+      "buy_link": "https://sowtrueseed.com/products/bone-meal",
+      "image_link": "Bone_Meal.jpg"
+    },
+    {
+      "fertilizer_name": "Cow Manure",
+      "description": "A well-balanced organic fertilizer that improves soil texture and microbial activity.",
+      "best_suited_for": "Vegetables, fruit trees, leafy greens.",
+      "application_frequency_dosage": "Apply every 2 months; mix well with soil before planting.",
+      "tags": ["Nitrogen-rich", "Organic", "Soil Enhancer"],
+      "watch_video": "https://example.com/cow-manure-video",
+      "buy_link": "https://example.com/cow-manure",
+      "image_link": "Cow_Dung.jpg"
+    },
+    {
+      "fertilizer_name": "Press Mud Compost",
+      "description": "Organic residue from sugar mills, rich in nutrients and improves soil aeration.",
+      "best_suited_for": "Sugarcane, cereals, oilseeds.",
+      "application_frequency_dosage": "Use 5-10 tons per hectare before sowing.",
+      "tags": ["Organic Waste", "Soil Conditioner", "Compost"],
+      "watch_video": "https://example.com/press-mud-video",
+      "buy_link": "https://example.com/press-mud",
+      "image_link": "Press_Mud_Compost.jpg"
+    },
+    {
+      "fertilizer_name": "Neem Cake Fertilizer",
+      "description": "Organic fertilizer and pest repellent, rich in nitrogen and prevents soil pests.",
+      "best_suited_for": "Paddy, wheat, vegetables, pulses.",
+      "application_frequency_dosage": "Use 250-500 kg per acre before sowing or as top dressing.",
+      "tags": ["Organic Pest Control", "Nitrogen-rich", "Soil Health"],
+      "watch_video": "https://example.com/neem-cake-video",
+      "buy_link": "https://example.com/neem-cake",
+      "image_link": "Neem_Cake_Fertilizer.jpg"
+    },
+    {
+      "fertilizer_name": "Vermicompost",
+      "description": "Nutrient-rich compost produced by earthworms, enhances soil fertility.",
+      "best_suited_for": "All crops, improves soil structure and moisture retention.",
+      "application_frequency_dosage": "Apply 2-3 kg per square meter or mix with potting soil.",
+      "tags": ["Soil Fertility", "Moisture Retention", "Organic"],
+      "watch_video": "https://example.com/vermicompost-video",
+      "buy_link": "https://example.com/vermicompost",
+      "image_link": "Vermicompost.jpg"
+    },
+    {
+      "fertilizer_name": "Vermiwash",
+      "description": "Liquid fertilizer extracted from vermicompost, improves plant immunity.",
+      "best_suited_for": "Vegetables, fruits, indoor plants.",
+      "application_frequency_dosage": "Dilute 1:10 with water and spray every 2 weeks.",
+      "tags": ["Liquid Fertilizer", "Plant Immunity", "Organic"],
+      "watch_video": "https://example.com/vermiwash-video",
+      "buy_link": "https://example.com/vermiwash",
+      "image_link": "Vermiwash.jpg"
+    },
+    {
+      "fertilizer_name": "Phosphocompost",
+      "description": "Enriched compost containing phosphorus for improved plant growth.",
+      "best_suited_for": "Cereals, legumes, vegetables.",
+      "application_frequency_dosage": "Use 1-2 kg per plant at sowing stage.",
+      "tags": ["Phosphorus-rich", "Compost", "Organic"],
+      "watch_video": "https://example.com/phosphocompost-video",
+      "buy_link": "https://example.com/phosphocompost",
+      "image_link": "Phosphocompost.jpg"
+    },
+    {
+      "fertilizer_name": "Green Manure",
+      "description": "Crop residues plowed into soil to improve organic content and nitrogen levels.",
+      "best_suited_for": "Pulses, cereals, oilseeds.",
+      "application_frequency_dosage": "Plow into soil before sowing new crops.",
+      "tags": ["Soil Conditioner", "Nitrogen Fixation", "Organic"],
+      "watch_video": "https://www.youtube.com/watch?v=_bBfaLLW8jc",
+      "buy_link": "https://www.groworganic.com/collections/green-manure",
+      "image_link": "Green_Manure.jpg"
+    },
+    {
+      "fertilizer_name": "Seaweed Fertilizer",
+      "description": "Mineral-rich organic fertilizer extracted from seaweed.",
+      "best_suited_for": "Vegetables, fruit trees, lawns.",
+      "application_frequency_dosage": "Spray diluted solution every 2 weeks.",
+      "tags": ["Mineral-rich", "Growth Booster", "Organic"],
+      "watch_video": "https://example.com/seaweed-fertilizer-video",
+      "buy_link": "https://example.com/seaweed-fertilizer",
+      "image_link": "Seaweed_Fertilizer.jpg"
+    },
+    {
+      "fertilizer_name": "Compost Tea",
+      "description": "Liquid compost extract, boosts soil microbial activity.",
+      "best_suited_for": "All crops, improves soil microbial life.",
+      "application_frequency_dosage": "Spray weekly for best results.",
+      "tags": ["Liquid Fertilizer", "Microbial Growth", "Organic"],
+      "watch_video": "https://example.com/compost-tea-video",
+      "buy_link": "https://example.com/compost-tea",
+      "image_link": "Compost_Tea.jpg"
+    },
+    {
+      "fertilizer_name": "Banana Peel Fertilizer",
+      "description": "Rich in potassium, enhances flowering and fruit production.",
+      "best_suited_for": "Tomatoes, roses, fruit trees.",
+      "application_frequency_dosage": "Use dried peels or tea weekly.",
+      "tags": ["Potassium-rich", "Fruit Growth", "Organic"],
+      "watch_video": "https://example.com/banana-peel-video",
+      "buy_link": "https://example.com/banana-peel",
+      "image_link": "Banana_Peel_Fertilizer.jpg"
+    },
+    {
+      "fertilizer_name": "Bio-Enriched Compost",
+      "description": "Compost infused with beneficial microbes for improved soil health.",
+      "best_suited_for": "All crops, improves soil aeration.",
+      "application_frequency_dosage": "Use 2-3 kg per square meter.",
+      "tags": ["Microbial Growth", "Soil Health", "Organic"],
+      "watch_video": "https://example.com/bio-enriched-compost-video",
+      "buy_link": "https://example.com/bio-enriched-compost",
+      "image_link": "Bio_Enriched_Compost.png"
+    },
+    {
+      "fertilizer_name": "Fish Emulsion Fertilizer",
+      "description": "Organic liquid fertilizer rich in nitrogen and trace minerals.",
+      "best_suited_for": "Leafy greens, vegetables, fruit plants.",
+      "application_frequency_dosage": "Dilute and spray every 2 weeks.",
+      "tags": ["Nitrogen-rich", "Liquid Fertilizer", "Organic"],
+      "watch_video": "https://example.com/fish-emulsion-video",
+      "buy_link": "https://example.com/fish-emulsion",
+      "image_link": "Fish Emulsion Fertilizer.png"
+    }
+  ]
+  

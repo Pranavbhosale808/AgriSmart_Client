@@ -14,6 +14,7 @@ const FormInput = ({ label, name, register, error, type = "text", ...rest }) => 
           required: rest.required, 
           valueAsNumber: type === "number" // Ensures numeric values are correctly parsed
         })}
+        defaultValue={rest.defaultValue} // Supports dynamically setting values
         className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
           error ? "border-red-500" : "border-gray-300"
         }`}
@@ -25,4 +26,3 @@ const FormInput = ({ label, name, register, error, type = "text", ...rest }) => 
 };
 
 export default FormInput;
-    

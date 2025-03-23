@@ -8,12 +8,15 @@ import FertilizerRecommendation from "./pages/FertilizerRecommendation";
 import CropYieldPrediction from "./pages/ CropYieldPrediction";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import Navbar from "./components/Navbar";
-import SoilLabs from './pages/SoilLab'
-import Footer from './components/ Footer'
+import { ToastContainer } from "react-toastify";
+import Footer from "./components/Footer";
+import MarketDataPage from "./pages/MarketDataPage"
+
 
 function App() {
   return (
     <Router>
+      <ToastContainer />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -38,11 +41,11 @@ function App() {
           element={<ProtectedRoute><Profile /></ProtectedRoute>}
         />
         <Route
-          path="/SoilLabs"
-          element={<ProtectedRoute><SoilLabs /></ProtectedRoute>}
+          path="/market-data"
+          element={<ProtectedRoute><MarketDataPage /></ProtectedRoute>}
         />
       </Routes>
-      {/* <Footer/> */}
+      <Footer/>
     </Router>
   );
 }
