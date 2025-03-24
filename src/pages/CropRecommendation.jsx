@@ -15,7 +15,6 @@
     const [error, setError] = useState(null);
     const [locationError, setLocationError] = useState(null);
     const resultRef = useRef(null);
-    const [isDialogOpen, setIsDialogOpen] = useState(false);
 
     // Function to get user's location and fetch weather data
     const getWeatherData = async (lat, lon) => {
