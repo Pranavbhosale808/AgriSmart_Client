@@ -26,23 +26,23 @@ function App() {
         {/* Protected Routes */}
         <Route
           path="/crop-recommendation"
-          element={<ProtectedRoute><CropRecommendation /></ProtectedRoute>}
+          element={<CropRecommendation />}
         />
         <Route
           path="/fertilizer-recommendation"
-          element={<ProtectedRoute><FertilizerRecommendation /></ProtectedRoute>}
+          element={<FertilizerRecommendation />}
         />
         <Route
           path="/crop-yield-prediction"
-          element={<ProtectedRoute><CropYieldPrediction /></ProtectedRoute>}
+          element={<CropYieldPrediction />}
         />
         <Route
           path="/Profile"
-          element={<ProtectedRoute><Profile /></ProtectedRoute>}
+          element={<Profile />}
         />
         <Route
           path="/market-data"
-          element={<ProtectedRoute><MarketDataPage /></ProtectedRoute>}
+          element={<MarketDataPage />}
         />
       </Routes>
       <Footer/>

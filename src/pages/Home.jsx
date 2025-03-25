@@ -51,30 +51,12 @@ const HomePage = () => {
             Optimize farming practices with AI-driven insights. Get real-time crop recommendations, fertilizer suggestions, and soil health analysis to boost productivity.
           </p>
 
-          {/* Conditional Rendering: Show Login & Signup if not logged in, else show Learn More */}
-          {!isAuthenticated ? (
-            <div className="mt-6 flex space-x-4">
-              <Link 
-                to="/signup"
-                className="bg-green-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-green-700 transition"
-              >
-                Sign Up
-              </Link>
-              <Link 
-                to="/login"
-                className="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition"
-              >
-                Login
-              </Link>
-            </div>
-          ) : (
             <button 
               className="mt-6 inline-block bg-green-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-green-700 transition"
             >
               Learnmore
             </button>
             
-          )}
         </div>
 
         {/* Right: Plant Image with Glow Animation */}

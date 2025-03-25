@@ -42,7 +42,7 @@ const Navbar = () => {
             <span className={`absolute left-0 bottom-0 w-full h-0.5 bg-black transition-transform transform scale-x-0 group-hover:scale-x-100 ${location.pathname === "/" ? "scale-x-100" : ""}`}></span>
           </Link>
 
-          {isAuthenticated && (
+
             <>
               <Link to="/crop-recommendation" className="text-gray-800 hover:text-green-700 transition">
                 <GiPlantSeed className="inline-block mr-2" /> Crop
@@ -54,7 +54,7 @@ const Navbar = () => {
                 <FaChartLine className="inline-block mr-2" /> Yield
               </Link> */}
             </>
-          )}
+        
 
           {/* Profile Dropdown */}
           {isAuthenticated && (
@@ -93,7 +93,6 @@ const Navbar = () => {
             Home
           </Link>
 
-          {isAuthenticated && (
             <>
               <Link to="/crop-recommendation" onClick={() => setMobileMenuOpen(false)} className="block text-black text-lg">
                 <GiPlantSeed className="inline-block mr-2" /> Crop
@@ -105,7 +104,7 @@ const Navbar = () => {
                 <FaChartLine className="inline-block mr-2" /> Yield
               </Link>
             </>
-          )}
+          
 
           {/* Profile & Logout in Mobile Menu */}
           {isAuthenticated ? (
