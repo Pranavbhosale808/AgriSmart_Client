@@ -2,7 +2,7 @@ import React from 'react'
 
 const Whoweare = () => {
   return (
-    <div>Whoweare</div>
+    <div>Whoweare and </div>
   )
 }
 
