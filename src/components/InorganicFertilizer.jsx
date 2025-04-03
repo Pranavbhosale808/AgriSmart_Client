@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { motion } from "framer-motion";  // Animations
-import Lottie from "lottie-react";  // Animated farming illustration
-import farmingAnimation from "../assets/Fertlizer.json";  // Ensure this exists
+import { motion } from "framer-motion";
+import Lottie from "lottie-react";
+import farmingAnimation from "../assets/Fertlizer.json";
+import { ClipLoader } from "react-spinners"; // Importing the new loader
 import FormInput from "../components/FormInput";
 import config from "../config";
 
-// Dropdown options for Soil Type
 const soilOptions = [
   { value: 0, label: "Loamy (दोमट मिट्टी)" },
   { value: 1, label: "Red (लाल मिट्टी)" },
@@ -15,30 +15,12 @@ const soilOptions = [
   { value: 4, label: "Black (काली मिट्टी)" },
 ];
 
-// Dropdown options for Crop Type
 const cropOptions = [
   { value: 0, label: "Rice (चावल)" },
   { value: 1, label: "Maize (मक्का)" },
   { value: 2, label: "Jute (जूट)" },
   { value: 3, label: "Cotton (कपास)" },
   { value: 4, label: "Coconut (नारियल)" },
-  { value: 5, label: "Papaya (पपीता)" },
-  { value: 6, label: "Orange (संतरा)" },
-  { value: 7, label: "Apple (सेब)" },
-  { value: 8, label: "Muskmelon (खरबूजा)" },
-  { value: 9, label: "Watermelon (तरबूज)" },
-  { value: 10, label: "Grapes (अंगूर)" },
-  { value: 11, label: "Soyachunks (सोयाबीन)" },
-  { value: 12, label: "Banana (केला)" },
-  { value: 13, label: "Pomegranate (अनार)" },
-  { value: 14, label: "Lentil (दाल)" },
-  { value: 15, label: "Blackgram (उड़द)" },
-  { value: 16, label: "Mungbean (मूंग)" },
-  { value: 17, label: "Mothbeans (मुठ)" },
-  { value: 18, label: "Pigeonpeas (अरहर)" },
-  { value: 19, label: "Kidneybeans (राजमा)" },
-  { value: 20, label: "Chickpea (चने)" },
-  { value: 21, label: "Coffee (कॉफी)" },
 ];
 
 const InorganicFertilizer = () => {
@@ -60,7 +42,7 @@ const InorganicFertilizer = () => {
       nitrogen: formData.nitrogen,
       phosphorous: formData.phosphorous,
       potassium: formData.potassium,
-      land_area: formData.landArea,  
+      land_area: formData.landArea,
     };
 
     const queryString = new URLSearchParams(requestData).toString();
@@ -70,7 +52,6 @@ const InorganicFertilizer = () => {
       if (!response.ok) {
         throw new Error(`Server Error: ${response.status}`);
       }
-
       const data = await response.json();
       setResult(data);
     } catch (err) {
@@ -81,21 +62,17 @@ const InorganicFertilizer = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#f5f9f3] to-[#e0eed8] flex items-center justify-center p-8">
+    <div className="min-h-screen flex items-center justify-center p-8 bg-gray-100">
       <div className="max-w-6xl w-full bg-white shadow-lg rounded-lg p-6">
-        <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-6">
-          🌱 Fertilizer Recommendation
-        </h1>
+        <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-6">🌱 Fertilizer Recommendation</h1>
 
-        {/* Main Layout: Form on Left, Animation on Right */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-          {/* Left Side: Input Form */}
           <motion.form 
             initial={{ opacity: 0, x: -30 }} 
             animate={{ opacity: 1, x: 0 }} 
             transition={{ duration: 0.8 }} 
             onSubmit={handleSubmit(onSubmit)} 
-            className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-white p-6 rounded-lg shadow-lg w-full"
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 p-6 rounded-lg shadow-lg bg-white w-full"
           >
             <FormInput label="Temperature (°C)" name="temperature" type="number" register={register} required error={errors.temperature} />
             <FormInput label="Humidity (%)" name="humidity" type="number" register={register} required error={errors.humidity} />
@@ -104,27 +81,7 @@ const InorganicFertilizer = () => {
             <FormInput label="Phosphorous" name="phosphorous" type="number" register={register} required error={errors.phosphorous} />
             <FormInput label="Potassium" name="potassium" type="number" register={register} required error={errors.potassium} />
             <FormInput label="Land Area (hectares)" name="landArea" type="number" register={register} required error={errors.landArea} />
-            <div>
-          <label className="block text-gray-700 text-sm font-bold mb-2">Soil Type <span className="text-red-500">*</span></label>
-          <select {...register("soilType", { required: true })} className="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none">
-            <option value="">Select Soil Type</option>
-            {soilOptions.map((soil) => (
-              <option key={soil.value} value={soil.value}>{soil.label}</option>
-            ))}
-          </select>
-        </div>
-
-        <div>
-          <label className="block text-gray-700 text-sm font-bold mb-2">Crop Type <span className="text-red-500">*</span></label>
-          <select {...register("cropType", { required: true })} className="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none">
-            <option value="">Select Crop Type</option>
-            {cropOptions.map((crop) => (
-              <option key={crop.value} value={crop.value}>{crop.label}</option>
-            ))}
-          </select>
-        </div>
-
-            {/* Submit Button */}
+            
             <div className="col-span-1 md:col-span-2 flex justify-center">
               <motion.button
                 whileHover={{ scale: 1.1 }}
@@ -135,20 +92,19 @@ const InorganicFertilizer = () => {
               </motion.button>
             </div>
           </motion.form>
-
-          {/* Right Side: Animated Farming Illustration */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-            className="flex justify-center"
-          >
+          
+          <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1 }} className="flex justify-center">
             <Lottie animationData={farmingAnimation} className="w-64 h-64 md:w-80 md:h-80" />
           </motion.div>
         </div>
 
-        {/* Result Table */}
-        {result && (
+        {loading && (
+          <div className="flex justify-center mt-6">
+            <ClipLoader color="#36D7B7" size={50} />
+          </div>
+        )}
+
+        {result && !loading && (
           <div className="mt-6 bg-white p-4 rounded-lg shadow-lg">
             <h2 className="text-lg font-bold text-center mb-4">🌾 Recommended Fertilizer</h2>
             <table className="w-full border-collapse border border-gray-300 text-gray-700">

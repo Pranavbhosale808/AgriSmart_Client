@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import plantImage from "../../public/assets/Back.png";
 import config from "../config";
-import SoilLabs from "../components/SoilLabs";
-import SchemeCarousel from "../components/SchemeCarousel"
+import Service from "../components/Services";
+import WhoWeAre from "../components/Whoweare";
     
 const HomePage = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -48,7 +47,7 @@ const HomePage = () => {
             Proper greening & <br /> smart solutions
           </h1>
           <p className="text-gray-600 mt-4">
-            Optimize farming practices with AI-driven insights. Get real-time crop recommendations, fertilizer suggestions, and soil health analysis to boost productivity.
+            AI Heuristic Approach towards Smart Farming Using Various tools of Agriculture
           </p>
 
             <button 
@@ -69,9 +68,8 @@ const HomePage = () => {
           <div className="absolute inset-0 bg-green-500 opacity-10 blur-lg rounded-full transition duration-500 hover:opacity-20"></div>
         </div>
       </div>
-
-<SchemeCarousel />
-<SoilLabs/>
+      <Service />
+      <WhoWeAre/>
   </div>
     
   );

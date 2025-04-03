@@ -9,12 +9,14 @@ const OrganicFertilizer = () => {
   const [ph, setPh] = useState("");
   const [rainfall, setRainfall] = useState("");
   const [recommendations, setRecommendations] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const soilTypes = ["Red Soil", "Alluvial Soil", "Laterite Soil", "Black Soil", "Sandy Soil"];
   const cropTypes = ["Maize", "Groundnut", "Jowar", "Sugarcane", "Bajra", "Wheat", "Grapes", "Tur", "Moong", "Urad", "Cotton", "Rice", "Banana", "Soybean", "Pomegranate"];
   const weatherConditions = ["Humid", "Hot and Dry", "Tropical", "Moderate", "Cold and Dry"];
 
   const fetchFertilizerRecommendations = async () => {
+    setLoading(true);
     try {
       const response = await fetch(
         `${config.API_BASE_URL}/api/organic_fertilizer?soil=${soil}&crop=${crop}&weather=${weather}&ph=${ph}&rainfall=${rainfall}`
@@ -34,13 +36,14 @@ const OrganicFertilizer = () => {
     } catch (error) {
       console.error("Error fetching fertilizer recommendations:", error);
     }
+    setLoading(false);
   };
 
   return (
     <div className="min-h-screen w-full flex flex-col items-center bg-gradient-to-r from-green-300 to-green-100 text-black p-10">
       <h2 className="text-5xl font-bold mb-10 text-black text-center w-full">Get Fertilizer Recommendations 🌱</h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-7xl">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 w-full max-w-4xl">
         <select
           value={soil}
           onChange={(e) => setSoil(e.target.value)}
@@ -98,8 +101,15 @@ const OrganicFertilizer = () => {
         Get Recommendations
       </button>
 
-      {recommendations.length > 0 && (
-        <div className="mt-10 w-full max-w-7xl">
+      {loading && (
+        <div className="mt-8 text-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-green-700"></div>
+          <p className="mt-4 text-lg font-semibold">Fetching recommendations...</p>
+        </div>
+      )}
+
+      {!loading && recommendations.length > 0 && (
+        <div>
           <FertilizerCard recommendations={recommendations} />
         </div>
       )}

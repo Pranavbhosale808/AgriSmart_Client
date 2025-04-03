@@ -50,9 +50,9 @@ const Navbar = () => {
               <Link to="/fertilizer-recommendation" className="text-gray-800 hover:text-green-700  transition">
                 <GiFarmTractor className="inline-block mr-2" /> Fertilizer
               </Link>
-              {/* <Link to="/crop-yield-prediction" className="text-gray-800 hover:text-green-700  transition">
-                <FaChartLine className="inline-block mr-2" /> Yield
-              </Link> */}
+              <Link to="/soil-data" className="text-gray-800 hover:text-green-700  transition">
+                <FaChartLine className="inline-block mr-2" /> SoilTestLab
+              </Link>
             </>
         
 
@@ -100,27 +100,11 @@ const Navbar = () => {
               <Link to="/fertilizer-recommendation" onClick={() => setMobileMenuOpen(false)} className="block text-black text-lg">
                 <GiFarmTractor className="inline-block mr-2" /> Fertilizer
               </Link>
-              <Link to="/crop-yield-prediction" onClick={() => setMobileMenuOpen(false)} className="block text-black text-lg">
-                <FaChartLine className="inline-block mr-2" /> Yield
+              <Link to="/soil-data" onClick={() => setMobileMenuOpen(false)} className="block text-black text-lg">
+                <GiFarmTractor className="inline-block mr-2" /> SoilTestLab
               </Link>
             </>
           
-
-          {/* Profile & Logout in Mobile Menu */}
-          {isAuthenticated ? (
-            <>
-              <Link to="/profile" onClick={() => setMobileMenuOpen(false)} className="block text-black text-lg">
-                Profile
-              </Link>
-              <button onClick={handleLogout} className="block text-red-600 text-lg">
-                Logout
-              </button>
-            </>
-          ) : (
-            <Link to="/" onClick={() => setMobileMenuOpen(false)} className="block bg-green-500 text-white text-lg px-4 py-2 rounded-lg hover:bg-green-700 transition">
-              Login
-            </Link>
-          )}
         </div>
       )}
     </nav>

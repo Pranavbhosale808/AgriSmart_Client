@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar";
 import { ToastContainer } from "react-toastify";
 import Footer from "./components/Footer";
 import MarketDataPage from "./pages/MarketDataPage"
+import SoiltestLab from "./pages/SoiltestLab";
 
 
 function App() {
@@ -43,6 +44,10 @@ function App() {
         <Route
           path="/market-data"
           element={<MarketDataPage />}
+        />
+        <Route
+          path="/soil-data"
+          element={<SoiltestLab />}
         />
       </Routes>
       <Footer/>
