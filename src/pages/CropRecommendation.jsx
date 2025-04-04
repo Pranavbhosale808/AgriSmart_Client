@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 import Lottie from "lottie-react";
@@ -7,71 +7,25 @@ import FormInput from "../components/FormInput";
 import FlipCard from "../components/FlipCard";
 import config from "../config";
 
-
 const CropRecommendation = () => {
-  const { register, handleSubmit, formState: { errors }, setValue } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [locationError, setLocationError] = useState(null);
   const resultRef = useRef(null);
-
-  // Function to get user's location and fetch weather data
-  const getWeatherData = async (lat, lon) => {
-    try {
-      const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${config.OPEN_WEATHER_API}&units=metric`
-      );
-      const data = await response.json();
-      
-      if (response.ok) {
-        setValue("temperature", data.main.temp.toFixed(2));
-        setValue("humidity", data.main.humidity.toFixed(2));
-
-        // Simulating rainfall data since OpenWeather does not always provide it
-        const rainfall = data.rain ? data.rain["1h"] || 0 : 0;
-        setValue("rainfall", rainfall.toFixed(2));
-
-        console.log("Weather Data:", {
-          temperature: data.main.temp,
-          humidity: data.main.humidity,
-          rainfall,
-        });
-      } else {
-        setLocationError("Unable to fetch weather data.");
-      }
-    } catch (error) {
-      setLocationError("Error fetching weather data.");
-    }
-  };
-
-  // Get user location
-  useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          getWeatherData(position.coords.latitude, position.coords.longitude);
-        },
-        () => {
-          setLocationError("Location access denied. Enter values manually.");
-        }
-      );
-    } else {
-      setLocationError("Geolocation is not supported by this browser.");
-    }
-  }, [setValue]);
 
   const onSubmit = async (formData) => {
     setLoading(true);
     setError(null);
     setResult(null);
-
+    console.log("Form Data:", formData);
+    
     try {
       const modifiedData = {
         N: formData.n,
         P: formData.p,
         K: formData.k,
-        temperature: parseFloat(formData.temperature).toFixed(2),
+        temperature: parseFloat(formData["temperature(°c)"]).toFixed(2),
         humidity: parseFloat(formData.humidity).toFixed(2),
         ph: parseFloat(formData.ph).toFixed(2),
         rainfall: parseFloat(formData.rainfall).toFixed(2),
@@ -82,7 +36,7 @@ const CropRecommendation = () => {
       console.log("Modified Data:", modifiedData);
 
       const queryParams = new URLSearchParams(modifiedData).toString();
-      const response = await fetch(`${config.API_BASE_URL}/api/crop?${queryParams}`);  
+      const response = await fetch(`${config.API_BASE_URL}/api/crop?${queryParams}`);
 
       if (!response.ok) {
         throw new Error(`Server Error: ${response.status}`);
@@ -112,12 +66,6 @@ const CropRecommendation = () => {
         🌾 Farmer's Crop Recommendation
       </motion.h1>
 
-      {locationError && (
-        <motion.p className="text-red-600 text-sm font-semibold mb-4">
-          ⚠ {locationError}
-        </motion.p>
-      )}
-
       <div className="max-w-6xl w-full flex flex-col md:flex-row items-center p-8 gap-8 bg-white shadow-lg rounded-lg">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -136,13 +84,13 @@ const CropRecommendation = () => {
           className="w-full md:w-1/2 bg-white p-6 rounded-lg shadow-lg"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {["N (Nitrogen)", "P (Phosphorus)", "K (Potassium)", "Temperature(°C) (8-43) ", "Humidity (%) (14 - 99)", "pH Level (3.5 - 10)", "Rainfall (mm) (20- 298)"].map((label, index) => (
+            {[
+              "N (Nitrogen)", "P (Phosphorus)", "K (Potassium)", 
+              "Temperature(°C) (8-43)", "Humidity (%) (14 - 99)", 
+              "pH Level (3.5 - 10)", "Rainfall (mm) (20- 298)"
+            ].map((label, index) => (
               <motion.div key={index} whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 200 }}>
-
-
                 <FormInput label={label} name={label.toLowerCase().split(" ")[0]} type="number" register={register} required error={errors[label.toLowerCase().split(" ")[0]]} />
-
-                
               </motion.div>
             ))}
           </div>
