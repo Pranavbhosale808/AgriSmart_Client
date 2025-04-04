@@ -82,6 +82,27 @@ const InorganicFertilizer = () => {
             <FormInput label="Potassium" name="potassium" type="number" register={register} required error={errors.potassium} />
             <FormInput label="Land Area (hectares)" name="landArea" type="number" register={register} required error={errors.landArea} />
             
+            <div>
+          <label className="block text-gray-700 text-sm font-bold mb-2">Soil Type <span className="text-red-500">*</span></label>
+          <select {...register("soilType", { required: true })} className="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none">
+            <option value="">Select Soil Type</option>
+            {soilOptions.map((soil) => (
+              <option key={soil.value} value={soil.value}>{soil.label}</option>
+            ))}
+          </select>
+        </div>
+
+
+            <div>
+          <label className="block text-gray-700 text-sm font-bold mb-2">Crop Type <span className="text-red-500">*</span></label>
+          <select {...register("cropType", { required: true })} className="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none">
+            <option value="">Select Crop Type</option>
+            {cropOptions.map((crop) => (
+              <option key={crop.value} value={crop.value}>{crop.label}</option>
+            ))}
+          </select>
+        </div>
+
             <div className="col-span-1 md:col-span-2 flex justify-center">
               <motion.button
                 whileHover={{ scale: 1.1 }}
