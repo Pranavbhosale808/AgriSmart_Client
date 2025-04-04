@@ -21,6 +21,23 @@ const cropOptions = [
   { value: 2, label: "Jute (जूट)" },
   { value: 3, label: "Cotton (कपास)" },
   { value: 4, label: "Coconut (नारियल)" },
+  { value: 5, label: "Papaya (पपीता)" },
+  { value: 6, label: "Orange (संतरा)" },
+  { value: 7, label: "Apple (सेब)" },
+  { value: 8, label: "Muskmelon (खरबूजा)" },
+  { value: 9, label: "Watermelon (तरबूज)" },
+  { value: 10, label: "Grapes (अंगूर)" },
+  { value: 11, label: "Soyachunks (सोयाबीन)" },
+  { value: 12, label: "Banana (केला)" },
+  { value: 13, label: "Pomegranate (अनार)" },
+  { value: 14, label: "Lentil (दाल)" },
+  { value: 15, label: "Blackgram (उड़द)" },
+  { value: 16, label: "Mungbean (मूंग)" },
+  { value: 17, label: "Mothbeans (मुठ)" },
+  { value: 18, label: "Pigeonpeas (अरहर)" },
+  { value: 19, label: "Kidneybeans (राजमा)" },
+  { value: 20, label: "Chickpea (चने)" },
+  { value: 21, label: "Coffee (कॉफी)" }
 ];
 
 const InorganicFertilizer = () => {
